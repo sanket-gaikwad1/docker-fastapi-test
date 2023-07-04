@@ -11,7 +11,7 @@ pipeline {
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')])
-          sh 'docker build -t your-docker-image:latest .'
+          sh 'docker build -t fastapi-app:latest .'
           sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
           sh 'docker push 3rigs/work:latest'
         }
